@@ -11,11 +11,11 @@ This application will use a rotary incremental encoder to show how to decode qua
 
 The following image highlights the Clockwise (CW) and Counterclockwise (CCW) conditions on the quadrature signals A and B. When signal A leads signal B (on rising or falling edge), it will be a clockwise detection, otherwise, when signal B leads signal A (on rising or falling edge), it will be a counterclockwise detection.
 
-<br><img src="images/cw_ccw.png">
+<br><img src="images/cw_ccw.png" width="800">
 
 The quadrature decoder uses the Configurable Custom Logic (CCL) to detect CW and CCW pulses. The following picture shows the output signals of the CCL implementation, CW and CCW, based on the quadrature signals A and B.
 
-<br><img src="images/wavedrom.png">
+<br><img src="images/wavedrom.png" width="800">
 
 Using the Event System (EVSYS) peripheral, the CW and CCW signals are linked to two TCB instances: One counts the CW pulses, the other one counts the CCW pulses.
 
@@ -54,8 +54,6 @@ More details and code examples on the AVR64DD32 can be found at the following li
 - Motor with encoder
     
     <img src="images/motor.jpg" width="300"><br>
-
-
 
 
 ## Operation
@@ -107,7 +105,7 @@ The internal connections and signals are presented in the following pictures:
 
 <br><img src="images/quad_internal_connections.png" width="1200">
 
-<br><img src="images/cases.png" width="1200">
+<br><img src="images/cases.png" width="800">
 
 <br><br>
 
