@@ -79,8 +79,8 @@ void TCB1_Initialize(void)
     //Count
     TCB1.CNT = 0x0;
 
-    //ASYNC disabled; CCMPEN enabled; CCMPINIT disabled; CNTMODE INT; 
-    TCB1.CTRLB = 0x10;
+    //ASYNC enabled; CCMPEN disabled; CCMPINIT disabled; CNTMODE INT; 
+    TCB1.CTRLB = 0x40;
     
     //DBGRUN disabled; 
     TCB1.DBGCTRL = 0x0;

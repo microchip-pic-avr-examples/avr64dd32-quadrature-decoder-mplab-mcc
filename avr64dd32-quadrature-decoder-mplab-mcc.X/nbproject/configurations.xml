@@ -38,6 +38,7 @@
           <itemPath>mcc_generated_files/timer/timer_interface.h</itemPath>
           <itemPath>mcc_generated_files/timer/tcb1.h</itemPath>
           <itemPath>mcc_generated_files/timer/tcb0.h</itemPath>
+          <itemPath>mcc_generated_files/timer/tca0.h</itemPath>
         </logicalFolder>
         <logicalFolder name="uart" displayName="uart" projectFiles="true">
           <itemPath>mcc_generated_files/uart/uart_drv_interface.h</itemPath>
@@ -80,6 +81,7 @@
           <logicalFolder name="src" displayName="src" projectFiles="true">
             <itemPath>mcc_generated_files/timer/src/tcb1.c</itemPath>
             <itemPath>mcc_generated_files/timer/src/tcb0.c</itemPath>
+            <itemPath>mcc_generated_files/timer/src/tca0.c</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="uart" displayName="uart" projectFiles="true">
@@ -143,7 +145,7 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
-        <property key="additional-warnings" value="true"/>
+        <property key="additional-warnings" value="false"/>
         <property key="asmlist" value="true"/>
         <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
@@ -315,8 +317,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-7fff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/temp/AVR-DD - Quadrature Decoder/avr64dd32-quadrature-decoder-mplab-mcc/avr64dd32-quadrature-decoder-mplab-mcc.X/debug/free/avr64dd32-quadrature-decoder-mplab-mcc_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
@@ -376,7 +376,7 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
-        <property key="additional-warnings" value="true"/>
+        <property key="additional-warnings" value="false"/>
         <property key="asmlist" value="true"/>
         <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
@@ -548,8 +548,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-7fff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/temp/AVR-DD - Quadrature Decoder/avr64dd32-quadrature-decoder-mplab-mcc/avr64dd32-quadrature-decoder-mplab-mcc.X/debug/pro/avr64dd32-quadrature-decoder-mplab-mcc_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

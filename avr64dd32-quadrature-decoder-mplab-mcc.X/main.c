@@ -35,40 +35,65 @@
 #include "qei.h"
 #include <stdio.h>
 
-void onCW()
+volatile static bool flag_OVF_CW = false;
+volatile static bool flag_OVF_CCW = false;
+volatile static bool flag_1_sec = false;
+
+void onCW(void)
 {
     LED_SetHigh();
 }
 
-void onCCW()
+void onCCW(void)
 {
     LED_SetLow();
 }
 
-void onCW_OVF()
+void onCW_OVF(void)
 {
-    printf("CW OVF");
+    flag_OVF_CW = true;
 }
 
-void onCCW_OVF()
+void onCCW_OVF(void)
 {
-    printf("CCW OVF");
+    flag_OVF_CCW = true;
 }
 
-int main(void)
+void onOneSecond(void)
+{
+    flag_1_sec = true;
+}
+
+void main(void)
 {
     SYSTEM_Initialize();
-    
+
     QEI_Initialize();
     QEI_SetHandlerCW(onCW);
     QEI_SetHandlerCCW(onCCW);
     QEI_SetHandlerCW_OVF(onCW_OVF);
     QEI_SetHandlerCCW_OVF(onCCW_OVF);
+    TCA0_OverflowCallbackRegister(onOneSecond);
     
     while (1)
     {       
-        /* QEI_CallbackHandler(); */
-        printf("Counter value is: %ld\n\r", QEI_GetVelocity());
-        _delay_ms(1000);  
+    
+        if(flag_OVF_CW == true)
+        {
+            flag_OVF_CW = false;
+            printf("CW OVF\n\r");
+        }
+
+        if(flag_OVF_CCW == true)
+        {
+            flag_OVF_CCW = false;
+            printf("CCW OVF\n\r");
+        }
+        
+        if(flag_1_sec == true)
+        {
+            flag_1_sec = false;
+            printf("Counter value is: %ld\n\r", QEI_GetVelocity());
+        }
     }
 }

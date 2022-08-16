@@ -24,10 +24,10 @@
 // Set the EVSYS module to the options selected in the user interface.
 
 int8_t EVSYS_Initialize(void) {
-    // CHANNEL0 PORTA_PIN0; 
-    EVSYS.CHANNEL0 = 0x40;
-    // CHANNEL1 PORTA_PIN1; 
-    EVSYS.CHANNEL1 = 0x41;
+    // CHANNEL0 PORTA_PIN4; 
+    EVSYS.CHANNEL0 = 0x44;
+    // CHANNEL1 PORTA_PIN5; 
+    EVSYS.CHANNEL1 = 0x45;
     // CHANNEL2 CCL_LUT1; 
     EVSYS.CHANNEL2 = 0x11;
     // CHANNEL3 CCL_LUT3; 

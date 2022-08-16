@@ -37,14 +37,7 @@ More details and code examples on the AVR64DD32 can be found at the following li
 - [AVR-Dx Series Device Pack v2.1.152 or newer](https://packs.download.microchip.com)
 - [MPLAB® Code Configurator Melody core 2.1.13 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator/melody)
 - [MPLAB® Code Configurator Melody Drivers](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator/melody)
-</br>
-TCB: 5.0.5
-</br>
-UART: 1.6.0
-</br>
-CCL: 3.1.2
-
-- Saleae Logic
+- Logic Analyzer Software
 - Terminal software – Tera term, Real term, PuTTY, etc vXXX
 
 
@@ -53,11 +46,15 @@ CCL: 3.1.2
 - The AVR64DD32 Curiosity Nano Development Board is used as a test platform.
   <br><img src="images/AVR64DD32.PNG" width="640"><br>
 - Oscilloscope/Logic Analyzer
-- Motor with encoder
-
-    <img src="images/motor.jpg" width="300"><br>
 - Rotary encoder <br>
     <img src="images/rotor.jpg" width="300"><br>
+
+*Note*: The setup can be made using **Rotary encoder** or **Motor with encoder**. In this example we use the **Rotary encoder**.
+
+- Motor with encoder
+    
+    <img src="images/motor.jpg" width="300"><br>
+
 
 
 
@@ -70,32 +67,64 @@ To program the Curiosity Nano board with this MPLAB® X project, follow the step
 
 The AVR64DD32 Curiosity Nano Development Board is used as test platform.
 
-<br><img src="images/AVR64DD32.PNG" width="500">
-
-**PA0** and **PA1** are not connected by default on the AVR64DD32 board. **The user must connect them through soldering on the back of the board where it is written PA0 and PA1**.
-
-<br><img src="images/weld.png" width="500">
+- System Clock - 4 MHz (default)
+- TCA0:
+  - System Clock/64
+  - Timer Mode 16 bit
+  - Count Direction - UP
+  - Overflow Interrupt Enable - every 1 second
+  - Waveform Generation Mode - Normal Mode
+- TCB0:
+  - Clock Select - Event
+  - Timer Mode: INT
+  - Enable Asynchronous
+  - Overflow Interrupt Enable
+- TCB1:
+  - Clock Select - Event
+  - Timer Mode: INT
+  - Enable Asynchronous
+  - Overflow Interrupt Enable
+- UART0:
+  - Baudrate: 115200
+  - Parity: None
+  - Enable USART Transmit and Receive
+  - Printf Support Enable
 
 The following configurations must be made for this project:
 
 
 |  Pin  |    Configuration    |    Semnification    |
 | :---: | :-----------------: | :-----------------: |
-|  PA0  | Input               | Phase A             |
-|  PA1  | Input               | Phase B             |
+|  PA4  | Input               | Phase A             |
+|  PA5  | Input               | Phase B             |
 |  PC0  | Output              | USART TX            |
 |  PC1  | Input               | USART RX            |
 |  PA6  | Output              | CW detection        |
 |  PD3  | Output              | CCW detection       |
 
-<br><img src="images/portconn.jpg" width="500">
+
+The internal connections and signals are presented in the following pictures:
+
+<br><img src="images/quad_internal_connections.png" width="1200">
+
+<br><img src="images/cases.png" width="1200">
+
 <br><br>
 
  ## 2. Demo
 
-In this demo, the function `QEI_GetVelocity` is called every second and the return is printed on serial communication. 
+In this demo, the function `QEI_GetVelocity` is called every second and the return is printed on serial communication. The setup connections are presented in the following picture:
 
-<br><img src="images/demo.png">
+<br><img src="images/portconn.jpg" width="960">
+<br>
+
+Every one second, the device sends a message through USART interface together with the counter value:
+<br><img src="images/serial-terminal.jpg">
+
+The signals are presented in the following picture. The values of counter are **8** and **-8**. 
+<br><img src="images/Signals_Capture.jpg">
+
+
 <br><br>
 
  ## 3. Summary

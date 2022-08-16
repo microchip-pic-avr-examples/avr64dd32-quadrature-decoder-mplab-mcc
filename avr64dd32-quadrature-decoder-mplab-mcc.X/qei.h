@@ -22,22 +22,16 @@
 #ifndef QEI_H
 #define QEI_H
 
-#define ENABLE_DETECT_CB    1
-#define POLLED_CB           0
+#include <stdint.h>
+
+typedef void (*qei_handler_t)(void);
+
 void QEI_Initialize(void);
 int32_t QEI_GetVelocity(void);
 
-#if ENABLE_DETECT_CB
-
-#if POLLED_CB == 1
-void QEI_CallbackHandler(void);
-#endif
-
-void QEI_SetHandlerCW(void (* HandlerCW)(void));
-void QEI_SetHandlerCCW(void (* HandlerCCW)(void));
-
-void QEI_SetHandlerCW_OVF(void (* HandlerCW_OVF)(void));
-void QEI_SetHandlerCCW_OVF(void (* HandlerCCW_OVF)(void));
-#endif /* ENABLE_DETECT_CB == 1 */
+void QEI_SetHandlerCW(qei_handler_t);
+void QEI_SetHandlerCCW(qei_handler_t);
+void QEI_SetHandlerCW_OVF(qei_handler_t);
+void QEI_SetHandlerCCW_OVF(qei_handler_t);
 
 #endif /* QEI_H */

@@ -47,6 +47,7 @@ extern "C" {
 #include "../ccl/ccl.h"
 #include "../system/clock.h"
 #include "../peripheral/evsys.h"
+#include "../timer/tca0.h"
 #include "../timer/tcb0.h"
 #include "../timer/tcb1.h"
 #include "../uart/usart0.h"

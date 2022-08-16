@@ -46,6 +46,7 @@ void SYSTEM_Initialize(void)
     CCL_Initialize();
     CLOCK_Initialize();
     EVSYS_Initialize();
+    TCA0_Initialize();
     TCB0_Initialize();
     TCB1_Initialize();
     USART0_Initialize();
