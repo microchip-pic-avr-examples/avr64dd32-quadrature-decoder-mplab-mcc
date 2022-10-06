@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.avr64dd32-quadrature-decoder-mplab-mcc",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "displayName": "Core Independent Quadrature Decoder using the AVR64DD32 Microcontroller with MCC Melody",
         "projectName": "avr64dd32-quadrature-decoder-mplab-mcc",
         "shortDescription": "Guide for using Core Independent Quadrature Decoder with AVR64DD32 Microcontroller using MCC Melody",
@@ -36,7 +36,7 @@
                 "versionRange": "*"
             }
         },
-        "author": "Bogdan-Alexadru Mariniuc",
+        "author": "Bogdan-Alexandru Mariniuc",
         "peripherals": [
             "CCL",
             "UART",
